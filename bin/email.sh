@@ -158,5 +158,5 @@ initalize
 data2
 compa
 cd ..
-source /bin/email.sh&
+source /opt/aerohive/email.sh&
 
