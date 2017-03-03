@@ -6,6 +6,7 @@ tmp1=/tmp/tmp1
 tmp2=/tmp/tmp2
 
 curl -o /tmp/setting.tmp "http://172.30.28.55:3000/setting/"
+curl -o /tmp/emailsetting.tmp "http://172.30.28.55:3000/emailsetting/"
 
 SECRET=$( cat /tmp/setting.tmp | jq '.[].secret' | sed 's/\"//g' )
 clientid=$( cat /tmp/setting.tmp | jq '.[].clientid' | sed 's/\"//g' )
