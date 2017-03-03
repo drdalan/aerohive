@@ -1,0 +1,18 @@
+TYPE=Ethernet
+BOOTPROTO=none
+# Server IP #
+IPADDR=ipaddress
+# Subnet #
+NETMASK=subnetmask
+# Set default gateway IP #
+GATEWAY=defaultgateway
+# Set dns servers #
+DNS1=dns1
+DNS2=dns2
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+# Disable ipv6 #
+IPV6INIT=no
+NAME=ens192
+DEVICE=ens192
+ONBOOT=yes
