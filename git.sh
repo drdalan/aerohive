@@ -2,7 +2,6 @@
 
 set -e
 
-folder=/home/dalan/server/
 local_branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 remote_branch=$(git rev-parse --abbrev-ref --symbolic-full-name @{u})
 remote=$(git config branch.$local_branch.remote)
