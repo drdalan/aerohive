@@ -1,11 +1,13 @@
 #!/bin/bash
 
-ipaddr=$( cat /tmp/networksettings.tmp | jq '.[].ipaddr' | sed 's/\"//g' )
-subnet=$( cat /tmp/networksettings.tmp | jq '.[].subnet' | sed 's/\"//g' )
-gateway=$( cat /tmp/networksettings.tmp | jq '.[].gateway' | sed 's/\"//g' )
-dns1=$( cat /tmp/networksettings.tmp | jq '.[].dns1' | sed 's/\"//g' )
-dns2=$( cat /tmp/networksettings.tmp | jq '.[].dns2' | sed 's/\"//g' )
-hostname=$( cat /tmp/networksettings.tmp | jq '.[].hostname' | sed 's/\"//g' )
+curl -o /tmp/networksetting.tmp "http://172.30.28.55:3000/networksetting/"
+
+ipaddr=$( cat /tmp/networksetting.tmp | jq '.[].ipaddr' | sed 's/\"//g' )
+subnet=$( cat /tmp/networksetting.tmp | jq '.[].subnet' | sed 's/\"//g' )
+gateway=$( cat /tmp/networksetting.tmp | jq '.[].gateway' | sed 's/\"//g' )
+dns1=$( cat /tmp/networksetting.tmp | jq '.[].dns1' | sed 's/\"//g' )
+dns2=$( cat /tmp/networksetting.tmp | jq '.[].dns2' | sed 's/\"//g' )
+hostname=$( cat /tmp/networksetting.tmp | jq '.[].hostname' | sed 's/\"//g' )
 oldhostname="$( hostname )"
 
 if [ "$hostname" = "$oldhostname" ]; then
