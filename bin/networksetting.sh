@@ -18,9 +18,9 @@ else
 fi
 
 if [ "$ipaddr" = "dhcp" ]; then
-	cp /root/files/ifcfg-ens192.dhcp /etc/sysconfig/network-scripts/ifcfg-ens192
+	cp /opt/aerohive/files/ifcfg-ens192.dhcp /etc/sysconfig/network-scripts/ifcfg-ens192
 else
-	cat /root/files/ifcfg-ens192.static | sed 's/ipaddress/'"$ipaddr"'/' | sed 's/subnetmask/'"$subnet"'/' | sed 's/defaultgatewa    y/'"$gateway"'/' | sed 's/dns1/'"$dns1"'/' | sed 's/dns2/'"$dns2"'/' > /etc/sysconfig/network-scripts/ifcfg-ens192
+	cat /opt/aerohive/ifcfg-ens192.static | sed 's/ipaddress/'"$ipaddr"'/' | sed 's/subnetmask/'"$subnet"'/' | sed 's/defaultgatewa    y/'"$gateway"'/' | sed 's/dns1/'"$dns1"'/' | sed 's/dns2/'"$dns2"'/' > /etc/sysconfig/network-scripts/ifcfg-ens192
 fi
 
 systemctl restart systemd-hostnamed
