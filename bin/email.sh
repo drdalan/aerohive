@@ -5,6 +5,8 @@ function initalize()
 tmp1=/tmp/tmp1
 tmp2=/tmp/tmp2
 
+curl -o /tmp/setting.tmp "http://172.30.28.55:3000/setting/"
+
 SECRET=$( cat /tmp/setting.tmp | jq '.[].secret' | sed 's/\"//g' )
 clientid=$( cat /tmp/setting.tmp | jq '.[].clientid' | sed 's/\"//g' )
 REDIRECT=$( cat /tmp/setting.tmp | jq '.[].redirect' | sed 's/\"//g' )
@@ -136,13 +138,13 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
             location=${loc:1}
         fi
         echo $hostName $ip $location
-        smtpHostname=$( cat /tmp/email.tmp | jq '.[].smtpHostname' | sed 's/\"//g' )
-        smtpPort=$( cat /tmp/email.tmp | jq '.[].smtpPort' | sed 's/\"//g' )
-        SMTPTO=$( cat /tmp/email.tmp | jq '.[].toAddr' | sed 's/\"//g' )
-        SMTPFROM=$( cat /tmp/email.tmp | jq '.[].fromAddr' | sed 's/\"//g' )
+        smtpHostname=$( cat /tmp/emailsetting.tmp | jq '.[].smtpHostname' | sed 's/\"//g' )
+        smtpPort=$( cat /tmp/emailsetting.tmp | jq '.[].smtpPort' | sed 's/\"//g' )
+        SMTPTO=$( cat /tmp/emailsetting.tmp | jq '.[].toAddr' | sed 's/\"//g' )
+        SMTPFROM=$( cat /tmp/emailsetting.tmp | jq '.[].fromAddr' | sed 's/\"//g' )
         SMTPSERVER=$smtpHostname:$smtpPort
-        SMTPUSER=$( cat /tmp/email.tmp | jq '.[].userName' | sed 's/\"//g' )
-        SMTPPASS=$( cat /tmp/email.tmp | jq '.[].password' | sed 's/\"//g' )
+        SMTPUSER=$( cat /tmp/emailsetting.tmp | jq '.[].userName' | sed 's/\"//g' )
+        SMTPPASS=$( cat /tmp/emailsetting.tmp | jq '.[].password' | sed 's/\"//g' )
 	MESSAGE="Your device $hostName $ip $location has $2 Have a nice day, your local Administrator."
         SUBJECT="Device $2"
 	echo -e "Subject: $SUBJECT\r\n\r\n$MESSAGE" |msmtp --debug --from=default -t $SMTPTO --tls-certcheck=off
