@@ -1,0 +1,164 @@
+ <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"  routerLink="/dashboard" routerLinkActive="active"><img style="width: 91px;height: 44px;margin-top: -12px;" src="assets/img/logo.png"></a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                     <a routerLink="/email" routerLinkActive="active">
+                        <i class="fa fa-envelope fa-fw"></i>
+                    </a>
+
+                <li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a routerLink="/settings" routerLinkActive="active"><i class="fa fa-gears fa-fw"></i> API Settings</a>
+                        </li>
+                        <li><a routerLink="/emailsettings" routerLinkActive="active"><i class="fa fa-gear fa-fw"></i> Email Settings</a>
+                        </li>
+                        <li><a routerLink="/networksettings" routerLinkActive="active"><i class="fa fa-sitemap fa-fw"></i> Network Settings</a>
+                        </li>
+                        <li><a routerLink="/users" routerLinkActive="active"><i class="fa fa-users fa-fw"></i> Users</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a routerLink="/logout" routerLinkActive="active"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a routerLink="/monitor" routerLinkActive="active"><i class="fa fa-signal fa-fw"></i> Devices</a>
+                        </li>
+                        <li>
+                            <a routerLink="/client" routerLinkActive="active"><i class="fa fa-laptop fa-fw"></i> Client</a>
+                        </li>
+                        <li>
+                            <a routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>                     
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+
+
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">API Settings</h1>
+           </div>
+
+
+<div class="row">
+<div class="col-lg-8"> 
+  <form>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>OwneriD</th>
+        <th>Authorization</th>
+        <th>Redirect</th>
+        <th>ClientiD</th>
+        <th>Secret</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody class="custom">
+      <tr *ngFor="let item of list">
+        <td>{{item.ownerid}}</td>
+        <td>{{item.auth}}</td>
+        <td>{{item.redirect}}</td>
+        <td>{{item.clientid}}</td>
+        <td>{{item.secret}}</td>
+        <td><button type="button" data-toggle="modal" data-target="#myModal2" (click)="Edit(item._id)" class="btn btn-success">Edit Settings</button></td>
+      </tr>
+      
+    </tbody>
+    
+  </table>
+  </form>
+</div>
+</div>
+
+<!-- <button type="button" data-toggle="modal" data-target="#myModal2" class="btn btn-success">Edit Settings</button> -->
+
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Settings</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="settingsSave" (ngSubmit)="settingsUpdate1()">
+  <div class="form-group">
+    <label for="ownerid">OwneriD:</label>
+    <input type="text" class="form-control" id="ownerid" value="{{(list2)?.ownerid}}" [formControl]="settingsSave.controls['ownerid']">
+  </div>
+  <div class="form-group">
+    <label for="auth">Authorization:</label>
+    <input type="text" class="form-control" id="auth" value="{{(list2)?.auth}}" [formControl]="settingsSave.controls['auth']">
+  </div>
+
+  <div class="form-group">
+    <label for="redirect">Redirect URI:</label>
+    <input type="text" class="form-control" id="redirect" value="{{(list2)?.redirect}}" [formControl]="settingsSave.controls['redirect']">
+  </div>
+
+  <div class="form-group">
+    <label for="clientid">ClientiD:</label>
+    <input type="text" class="form-control" id="clientid" value="{{(list2)?.clientid}}" [formControl]="settingsSave.controls['clientid']">
+  </div>
+
+  <div class="form-group">
+    <label for="secret">Secret:</label>
+    <input type="text" class="form-control" id="secret" value="{{(list2)?.secret}}" [formControl]="settingsSave.controls['secret']">
+  </div>
+
+  <button type="submit" class="btn btn-default" [disabled]="!settingsSave.valid">Update Settings</button>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div>

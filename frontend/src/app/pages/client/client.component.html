@@ -1,0 +1,150 @@
+ <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"  routerLink="/dashboard" routerLinkActive="active"><img style="width: 91px;height: 44px;margin-top: -12px;" src="assets/img/logo.png"></a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                     <a routerLink="/email" routerLinkActive="active">
+                        <i class="fa fa-envelope fa-fw"></i>
+                    </a>
+
+                <li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a routerLink="/settings" routerLinkActive="active"><i class="fa fa-gears fa-fw"></i> API Settings</a>
+                        </li>
+                        <li><a routerLink="/emailsettings" routerLinkActive="active"><i class="fa fa-gear fa-fw"></i> Email Settings</a>
+                        </li>
+                        <li><a routerLink="/networksettings" routerLinkActive="active"><i class="fa fa-sitemap fa-fw"></i> Network Settings</a>
+                        </li>
+                        <li><a routerLink="/users" routerLinkActive="active"><i class="fa fa-users fa-fw"></i> Users</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a routerLink="/logout" routerLinkActive="active"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a routerLink="/monitor" routerLinkActive="active"><i class="fa fa-signal fa-fw"></i> Devices</a>
+                        </li>
+                        <li>
+                            <a routerLink="/client" routerLinkActive="active"><i class="fa fa-laptop fa-fw"></i> Client</a>
+                        </li>
+                        <li>
+                            <a routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>                          
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Client</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           Client Table
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>MacAddress</th>
+                                        <th>Hostname</th>
+                                        <th>IP Address</th>
+                                        <th>User Name</th>
+                                        <th>RSSI</th>
+                                        <th>SNR</th>
+                                        <th>SSID</th>
+                                        <th>Userprofile</th>
+                                        <th>VLAN</th>
+                                        <th>Connection Type</th>
+                                        <th>Usage</th>
+                                        <th>Deviceid</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX" *ngFor="let item of list">
+                                        <td>{{item.clientMac}}</td>
+                                        <td>{{item.hostName}}</td>
+                                        <td class="center">{{item.ip}}</td>
+                                        <td>{{item.userName}}</td>
+                                        <td class="center">{{item.rssi}}</td>
+                                        <td class="center">{{item.snr}}</td>
+                                        <td>{{item.ssid}}</td>
+                                        <td>{{item.userProfile}}</td>
+                                        <td>{{item.vlan}}</td>
+                                        <td>{{item.connected}}</td>
+                                        <td *ngIf="item.usage<=999999"> {{(item.usage/1024)|number}}KB</td>
+                                        <td *ngIf="item.usage>=999999"> {{(item.usage/1048576)|number}}MB</td>
+                                        <td>{{item.deviceId}}</td>
+                                    </tr>
+                                    <!--<tr class="even gradeC">
+                                        <td>Trident</td>
+                                        <td>Internet Explorer 5.0</td>
+                                        <td>Win 95+</td>
+                                        <td class="center">5</td>
+                                        <td class="center">C</td>
+                                        <td>Win 95+</td>
+                                        <td>Win 95+</td>
+                                        <td>Win 95+</td>
+                                    </tr>-->
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+
+
+</div>
+        <!-- /#page-wrapper -->
+    
