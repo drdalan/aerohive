@@ -17,5 +17,5 @@ var settingSchema = new mongoose.Schema({
 
 });
 
-var collectionName = 'setting'
+var collectionName = 'apisetting'
 module.exports = db.model('setting', settingSchema, collectionName)
