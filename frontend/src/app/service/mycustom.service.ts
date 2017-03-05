@@ -471,6 +471,22 @@ getNetworkupdate(){
      
     }
 
+getUpgrade(){
+     
+     var url="http://api.dalan.pro/setting/upgrade";
+        
+        var headers = new Headers();
+        headers.append('Content-Type',
+            'application/x-www-form-urlencoded'
+        );
+        headers.append('Access-Control-Allow-Methods', 'GET');
+       
+        return this.http.get(url).map(
+            res => res.json()
+        )
+     
+}
+
 
 saveData1(f){
 
