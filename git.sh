@@ -51,3 +51,5 @@ cp /tmp/mycustom.service.ts /opt/aerohive/frontend/src/app/service/mycustom.serv
 
 sudo /usr/bin/systemctl restart nginx
 sudo /usr/bin/systemctl restart backendserver.service
+
+echo Upgraded
