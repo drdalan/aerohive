@@ -34,6 +34,6 @@ cat /opt/aerohive/backend/model/admin.js | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed
 cat /opt/aerohive/frontend/protractor.conf.js | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/protractor.conf.js
 cat /opt/aerohive/files/default.conf | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed 's/IPADDRESS/'"$IPADDRESS"'/' > /tmp/default.conf
 
-cp /tmp/default.conf /etc/nginx/conf.d/default.conf
+sudo cp /tmp/default.conf /etc/nginx/conf.d/default.conf
 cp /tmp/admin.js /opt/aerohive/backend/model/admin.js
 cp /tmp/protractor.conf.js /opt/aerohive/frontend/protractor.conf.js
