@@ -30,6 +30,12 @@ else
 
 fi
 
+if [ "$HOSTNAME" = "localhost.localdomain" ]; then
+        cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$IPADDRESS"'/' > /tmp/mycustom.service.ts
+else
+        cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/mycustom.service.ts
+fi
+
 cat /opt/aerohive/backend/model/admin.js | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed 's/USERNAME/'"$USERNAME"'/' | sed 's/PASSWORD/'"$PASSWORD"'/' > /tmp/admin.js
 cat /opt/aerohive/frontend/protractor.conf.js | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/protractor.conf.js
 cat /opt/aerohive/files/default.conf | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed 's/IPADDRESS/'"$IPADDRESS"'/' > /tmp/default.conf
@@ -37,3 +43,4 @@ cat /opt/aerohive/files/default.conf | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed 's/
 sudo cp /tmp/default.conf /etc/nginx/conf.d/default.conf
 cp /tmp/admin.js /opt/aerohive/backend/model/admin.js
 cp /tmp/protractor.conf.js /opt/aerohive/frontend/protractor.conf.js
+cp /tmp/mycustom.service.ts /opt/aerohive/frontend/src/app/service/mycustom.service.ts
