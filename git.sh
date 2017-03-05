@@ -32,11 +32,12 @@ fi
 
 if [ "$HOSTNAME" = "localhost.localdomain" ]; then
         cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$IPADDRESS"'/' > /tmp/mycustom.service.ts
+        cat /opt/aerohive/backend/model/admin.js | sed 's/HOSTNAME/'"$IPADDRESS"'/' | sed 's/USERNAME/'"$USERNAME"'/' | sed 's/PASSWORD/'"$PASSWORD"'/' > /tmp/admin.js
 else
-        cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/mycustom.service.ts
+        cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/mycustom.service.tsa
+        cat /opt/aerohive/backend/model/admin.js | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed 's/USERNAME/'"$USERNAME"'/' | sed 's/PASSWORD/'"$PASSWORD"'/' > /tmp/admin.js
 fi
 
-cat /opt/aerohive/backend/model/admin.js | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed 's/USERNAME/'"$USERNAME"'/' | sed 's/PASSWORD/'"$PASSWORD"'/' > /tmp/admin.js
 cat /opt/aerohive/frontend/protractor.conf.js | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/protractor.conf.js
 cat /opt/aerohive/files/default.conf | sed 's/HOSTNAME/'"$HOSTNAME"'/' | sed 's/IPADDRESS/'"$IPADDRESS"'/' > /tmp/default.conf
 
