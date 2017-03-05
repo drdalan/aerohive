@@ -46,3 +46,4 @@ cp /tmp/protractor.conf.js /opt/aerohive/frontend/protractor.conf.js
 cp /tmp/mycustom.service.ts /opt/aerohive/frontend/src/app/service/mycustom.service.ts
 
 sudo /usr/bin/systemctl restart nginx
+sudo /usr/bin/systemctl restart backendserver.service
