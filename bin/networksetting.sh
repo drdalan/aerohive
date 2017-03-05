@@ -16,7 +16,7 @@ else
 	hostname "$hostname"
 	echo "$hostname" > /etc/hostname
 	echo "$hostname" > /etc/sysconfig/network
-	cat /root/files/hosts | sed 's/hosts/'"$hostname"'/'
+	cat /root/files/hosts | sed 's/HOSTNAME/'"$hostname"'/'
 fi
 
 if [ "$ipaddr" = "dhcp" ]; then
