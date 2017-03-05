@@ -67,7 +67,7 @@ this.customservice.getNetworksettings().subscribe(
       'gateway': 'dhcp',
       'dns1': 'dhcp',
       'dns2': 'dhcp',
-      'hostname': ['', [Validators.required]],
+      'hostname': ['', [Validators.required, Validators.pattern(hostnameRegex)]],
     })
         
 
