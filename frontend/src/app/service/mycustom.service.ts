@@ -43,7 +43,7 @@ export class MycustomService {
     constructor(public http: Http) {
 
      
-     var url="http://api.dalan.pro/setting";
+     var url="http://HOSTNAME/setting";
         
         var headers = new Headers();
         headers.append('Content-Type',
@@ -247,7 +247,7 @@ sendMail(f, res1){
      this.msg = f.msg;
      this.pass = f.password;
 
-     var url="http://api.dalan.pro/mail";
+     var url="http://HOSTNAME/mail";
 
         var headers = new Headers();
         headers.append('Content-Type',
@@ -276,7 +276,7 @@ sendMail(f, res1){
 
 getUsers(){
      
-     var url="http://api.dalan.pro/insertData";
+     var url="http://HOSTNAME/insertData";
         
         var headers = new Headers();
         headers.append('Content-Type',
@@ -292,7 +292,7 @@ getUsers(){
 
 getemailSettings(){
      
-     var url="http://api.dalan.pro/emailsetting";
+     var url="http://HOSTNAME/emailsetting";
         
         var headers = new Headers();
         headers.append('Content-Type',
@@ -308,7 +308,7 @@ getemailSettings(){
 
 emailsettingsUpdate(f,id){
 
-     var url="http://api.dalan.pro/emailsetting/update/"+id;
+     var url="http://HOSTNAME/emailsetting/update/"+id;
         
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
@@ -338,7 +338,7 @@ emailsettingsUpdate(f,id){
 
 getSettings(){
      
-     var url="http://api.dalan.pro/setting";
+     var url="http://HOSTNAME/setting";
         
         var headers = new Headers();
         headers.append('Content-Type',
@@ -354,7 +354,7 @@ getSettings(){
 
 settingsUpdate(f,id){
 
-     var url="http://api.dalan.pro/setting/update/"+id;
+     var url="http://HOSTNAME/setting/update/"+id;
         
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
@@ -381,7 +381,7 @@ settingsUpdate(f,id){
 
 getNetworksettings(){
      
-     var url="http://api.dalan.pro/networksetting";
+     var url="http://HOSTNAME/networksetting";
         
         var headers = new Headers();
         headers.append('Content-Type',
@@ -399,7 +399,7 @@ networksettingsUpdate(f,id){
 
 
 
-     var url="http://api.dalan.pro/networksetting/update/"+id;
+     var url="http://HOSTNAME/networksetting/update/"+id;
         
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
@@ -429,7 +429,7 @@ networksettingsUpdatedhcp(f,id){
 
 
 
-     var url="http://api.dalan.pro/networksetting/update/"+id;
+     var url="http://HOSTNAME/networksetting/update/"+id;
         
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
@@ -457,7 +457,7 @@ networksettingsUpdatedhcp(f,id){
 
 getNetworkupdate(){
      
-     var url="http://api.dalan.pro/networksetting/updatenetwork";
+     var url="http://HOSTNAME/networksetting/updatenetwork";
         
         var headers = new Headers();
         headers.append('Content-Type',
@@ -473,7 +473,7 @@ getNetworkupdate(){
 
 getUpgrade(){
      
-     var url="http://api.dalan.pro/setting/upgrade";
+     var url="http://HOSTNAME/setting/upgrade";
         
         var headers = new Headers();
         headers.append('Content-Type',
@@ -490,7 +490,7 @@ getUpgrade(){
 
 saveData1(f){
 
-     var url="http://api.dalan.pro/insertData";
+     var url="http://HOSTNAME/insertData";
         
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
@@ -514,7 +514,7 @@ saveData1(f){
 
 update(f,id){
 
-     var url="http://api.dalan.pro/insertData/update/"+id;
+     var url="http://HOSTNAME/insertData/update/"+id;
         
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
@@ -540,7 +540,7 @@ update(f,id){
 
 deleteData(f){
 
-     var url="http://api.dalan.pro/insertData/delete/"+f;
+     var url="http://HOSTNAME/insertData/delete/"+f;
 
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
@@ -557,7 +557,7 @@ deleteData(f){
 
 login(f){
 
-     var url="http://api.dalan.pro/insertData/login";
+     var url="http://HOSTNAME/insertData/login";
 
         var headers = new Headers();
         headers.append('Content-Type','application/x-www-form-urlencoded');
