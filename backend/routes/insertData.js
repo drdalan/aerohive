@@ -61,7 +61,7 @@ var uid = req.params.id;
 var updateData = {
   userName: req.body.userName,
   fullName: req.body.fullName,
-  passwrod: req.body.password
+  password: req.body.password
 };
 
 Admin.update({"_id":uid},updateData, function(err,result){
