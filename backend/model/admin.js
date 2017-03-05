@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 //Set up default mongoose connection
-var mongoDB = 'mongodb://USERNAME:PASSWORD@HOSTNAME:27017/aerohive';
+var mongoDB = 'mongodb://USERNAME:PASSWORD@IPADDRESS:27017/aerohive';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoDB);
