@@ -2,11 +2,12 @@
 
 function initalize()
 {
+IPADDRESS="$( ip addr | grep -Po 'inet \K[\d.]+' | grep -v 127.0.0.1 )"
 tmp1=/tmp/tmp1
 tmp2=/tmp/tmp2
 
-curl -o /tmp/setting.tmp "http://172.30.28.55:3000/setting/"
-curl -o /tmp/emailsetting.tmp "http://172.30.28.55:3000/emailsetting/"
+curl -o /tmp/setting.tmp "http://$IPADDRESS:3000/setting/"
+curl -o /tmp/emailsetting.tmp "http://$IPADDRESS:3000/emailsetting/"
 
 SECRET=$( cat /tmp/setting.tmp | jq '.[].secret' | sed 's/\"//g' )
 clientid=$( cat /tmp/setting.tmp | jq '.[].clientid' | sed 's/\"//g' )
@@ -48,7 +49,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     else
         echo $line > "${fil}"
     fi
-    
+
 done < "${tmp1}"
 
 }
@@ -89,10 +90,10 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
             val=`cat "$line"_1`
             if [ "$val" = "true" ]; then
                 echo " Device Connected"
-		status="connected"
+                status="connected"
             else
                 echo " device disconnected"
-		status="disconnected"
+                status="disconnected"
             fi
             extract $line $status
         fi
@@ -146,11 +147,11 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
         SMTPSERVER=$smtpHostname:$smtpPort
         SMTPUSER=$( cat /tmp/emailsetting.tmp | jq '.[].userName' | sed 's/\"//g' )
         SMTPPASS=$( cat /tmp/emailsetting.tmp | jq '.[].password' | sed 's/\"//g' )
-	MESSAGE="Your device $hostName $ip $location has $2 Have a nice day, your local Administrator."
+        MESSAGE="Your device $hostName $ip $location has $2 Have a nice day, your local Administrator."
         SUBJECT="Device $2"
-	echo -e "Subject: $SUBJECT\r\n\r\n$MESSAGE" |msmtp --debug --from=default -t $SMTPTO --tls-certcheck=off
+        echo -e "Subject: $SUBJECT\r\n\r\n$MESSAGE" |msmtp --debug --from=default -t $SMTPTO --tls-certcheck=off
     fi
-    
+
 done < /tmp/data/an.txt
 }
 
@@ -162,4 +163,3 @@ data2
 compa
 cd ..
 source /opt/aerohive/email.sh&
-
