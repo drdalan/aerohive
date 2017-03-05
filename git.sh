@@ -44,3 +44,5 @@ sudo cp /tmp/default.conf /etc/nginx/conf.d/default.conf
 cp /tmp/admin.js /opt/aerohive/backend/model/admin.js
 cp /tmp/protractor.conf.js /opt/aerohive/frontend/protractor.conf.js
 cp /tmp/mycustom.service.ts /opt/aerohive/frontend/src/app/service/mycustom.service.ts
+
+sudo /usr/bin/systemctl restart nginx
