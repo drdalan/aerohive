@@ -25,6 +25,6 @@ else
 	cat /opt/aerohive/ifcfg-ens192.static | sed 's/ipaddress/'"$ipaddr"'/' | sed 's/subnetmask/'"$subnet"'/' | sed 's/defaultgatewa    y/'"$gateway"'/' | sed 's/dns1/'"$dns1"'/' | sed 's/dns2/'"$dns2"'/' > /etc/sysconfig/network-scripts/ifcfg-ens192
 fi
 
-systemctl restart systemd-hostnamed
-systemctl restart network
+sudo systemctl restart systemd-hostnamed
+sudo systemctl restart network
 
