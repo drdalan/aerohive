@@ -58,6 +58,24 @@ this.customservice.getSettings().subscribe(
 
   }
 
+  Upgrade(){
+  
+    this.customservice.getUpgrade().subscribe(
+
+                  data => {
+
+          console.log(data);
+
+            },
+            error => {
+
+                console.log(JSON.stringify(error));
+
+            },
+            () => console.log('Finished')
+    );
+  }
+
   Edit(id){
    this.id1 = id;
   }
