@@ -19,5 +19,5 @@ var emailSchema = new mongoose.Schema({
 
 });
 
-var collectionName = 'email'
+var collectionName = 'emailsetting'
 module.exports = db.model('email', emailSchema, collectionName)
