@@ -13,7 +13,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://api.dalan.pro:4200/',
+  baseUrl: 'http://HOSTNAME:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
