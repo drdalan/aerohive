@@ -263,7 +263,7 @@
 
   <div class="form-group">
     <label for="lastname">Password:</label>
-    <input type="text" class="form-control" id="password" value="{{password}}" [formControl]="update.controls['password']">
+    <input type="text" class="form-control" id="password" [formControl]="update.controls['password']">
   </div>
 
   <button type="submit" class="btn btn-default" [disabled]="!update.valid">Update User</button>
