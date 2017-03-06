@@ -12,6 +12,7 @@ export class EmailsettingsComponent implements OnInit {
 memberid: any;
 emailsettingsSave: any;
 id1: any;
+id2: any;
 list: any;
 list2: any;
 smtpHostname: any;
@@ -32,7 +33,7 @@ this.customservice.getemailSettings().subscribe(
          this.list = data;
          this.list2 = data[0];
 
-         this.id1 = data[0]._id;
+         this.id2 = data[0]._id;
 
         
        console.log(this.list);
