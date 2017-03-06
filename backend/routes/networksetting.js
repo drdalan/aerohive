@@ -57,7 +57,7 @@ router.get('/updatenetwork', function(req, res, next) {
 var exec = require('child_process').exec;
 
 function puts(error, stdout, stderr) { sys.puts(stdout) }
-exec("sh /opt/aerohive/bin/networksetting.sh", function(error, stdout, stderr) {
+exec("sudo /bin/networksetting", function(error, stdout, stderr) {
   if (!error) {
     console.log(stdout)
   } else {
