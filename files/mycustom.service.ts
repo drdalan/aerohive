@@ -319,7 +319,7 @@ emailsettingsUpdate(f,id){
     let body={
 
     smtpHostname:f.smtpHostname,
-    euserName:f.userName,
+    userName:f.euserName,
     password:f.password,
     toAddr:f.toAddr,
     fromAddr:f.fromAddr,
