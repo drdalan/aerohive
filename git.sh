@@ -20,6 +20,8 @@ if git merge-base --is-ancestor $remote_branch HEAD; then
 
 fi
 
+rm -rf /opt/aerohive/frontend/src/app/service/mycustom.service.ts
+
 if git merge-base --is-ancestor HEAD $remote_branch; then
     echo 'Fast-forward possible. Merging...'
     git merge --ff-only --stat $remote_branch
