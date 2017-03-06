@@ -67,6 +67,24 @@ this.customservice.getemailSettings().subscribe(
     
   }
 
+  Alerts(){
+  
+    this.customservice.getAlerts().subscribe(
+
+                  data => {
+
+          console.log(data);
+
+            },
+            error => {
+
+                console.log(JSON.stringify(error));
+
+            },
+            () => console.log('Finished')
+    );
+  }
+  
   Edit(id){
    this.id1 = id;
   }
