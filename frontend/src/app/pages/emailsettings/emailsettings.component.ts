@@ -56,11 +56,11 @@ this.customservice.getemailSettings().subscribe(
     this.emailsettingsSave = fb.group({
 
       'smtpHostname': ['', [Validators.required, Validators.pattern(hostnameRegex)]],
-      'userName': ['', [Validators.required]],
-      'password': ['', [Validators.required]],
+      'userName': [''],
+      'password': [''],
       'toAddr': ['', [Validators.required, Validators.pattern(emailRegex)]],
       'fromAddr': ['', [Validators.required, Validators.pattern(emailRegex)]],
-      'subject': ['', [Validators.required]],
+      'subject': [''],
       'smtpPort': ['', [Validators.required, Validators.minLength(2), Validators.pattern(portnumberRegex)]],
 
     })
