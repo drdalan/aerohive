@@ -201,7 +201,7 @@ clientTimeAPi(mac){
 
 clientTable(){
 
-    var clientTable = "https://cloud-va.aerohive.com/xapi/v1/monitor/clients?ownerId=1239&startTime=2017-02-20T01:00:00.000Z&endTime=2017-02-28T23:00:00.000Z&page=0&pageSize=500"
+    var clientTable = "https://cloud-va.aerohive.com/xapi/v1/monitor/clients?ownerId=1239"
      this.c_secret = this.secret;
      this.c_id = this.clientid;
      this.c_url = this.redirect;
