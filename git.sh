@@ -40,7 +40,7 @@ if [ "$HOSTNAME" = "localhost.localdomain" ]; then
         cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$IPADDRESS"'/' > /tmp/mycustom.service.ts
         cat /opt/aerohive/backend/model/admin.js | sed 's/IPADDRESS/'"$IPADDRESS"'/' | sed 's/USERNAME/'"$USERNAME"'/' | sed 's/PASSWORD/'"$PASSWORD"'/' > /tmp/admin.js
 else
-        cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/mycustom.service.tsa
+        cat /opt/aerohive/files/mycustom.service.ts | sed 's/HOSTNAME/'"$HOSTNAME"'/' > /tmp/mycustom.service.ts
         cat /opt/aerohive/backend/model/admin.js | sed 's/IPADDRESS/'"$HOSTNAME"'/' | sed 's/USERNAME/'"$USERNAME"'/' | sed 's/PASSWORD/'"$PASSWORD"'/' > /tmp/admin.js
 fi
 
