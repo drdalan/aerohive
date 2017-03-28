@@ -34,8 +34,10 @@ function puts(error, stdout, stderr) { sys.puts(stdout) }
 exec("sh /opt/aerohive/git.sh", function(error, stdout, stderr) {
   if (!error) {
     console.log(stdout)
+    res.send({message:'Upgrade Successfully'})
   } else {
     console.log(stderr)
+    res.send({message:'Upgrade Failed'})
   }
 
 });
